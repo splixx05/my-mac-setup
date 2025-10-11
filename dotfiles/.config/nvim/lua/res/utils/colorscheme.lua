@@ -1,0 +1,56 @@
+return {
+  Foreground = "#a7b1da",
+  Background = "#23283d",
+  Accent = "#7aa2f7",
+  Highlight = "#B4C9FF",
+  CursorForeground = "#7aa2f7",
+  CursorBackground = "#3f486b",
+  Visual = "#283457",
+  CursorLine = "#283457",
+  CursorLineNr = "#B4C9FF",
+  LineNr = "#a7b1da",
+
+  Comment = "#5C6773",
+  Todo = "#34eb83",
+
+  Constant = "#FFD580",
+  String = "#A0CFFF",
+  Character = "#7aa2f7",
+  Number = "#FFAA66",
+  Boolean = "#FF6B6B",
+  Float = "#7aa2f7",
+
+  Identifier = "#5CAEFF",
+  Function = "#5CAEFF",
+
+  Statement = "#CBA6F7",
+  Conditional = "#CBA6F7",
+  Repeat = "#CBA6F7",
+  Label = "#00c6e1",
+  Operator = "#A099FF",
+  Keyword = "#A099FF",
+  Exception = "#FF6B6B",
+
+  PreProc = "#7aa2f7",
+  Include = "#CBA6F7",
+  Define = "#7aa2f7",
+  Macro = "#7aa2f7",
+
+  Type = "#A099FF",
+  StorageClass = "#7aa2f7",
+  Structure = "#00c6e1",
+  Typedef = "#FF6B6B",
+
+  Special = "#34eb83",
+  SpecialChar = "#41ffa4",
+  Tag = "#CBA6F7",
+  Delimiter = "#34eb83",
+  SpecialComment = "#B4C9FF",
+  Debug = "#FF6B6B",
+
+  Underlined = "#A0CFFF",
+  Ignore = "#5C6773",
+  Error = "#FF6B6B",
+  Warning = "#FFAA66",
+  Boarder = "#7aa2f7",
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.gitconfig
+.config/nvim/lua/archive/
+.config/yazi/bookmark
+*.bak
+.DS_Store
