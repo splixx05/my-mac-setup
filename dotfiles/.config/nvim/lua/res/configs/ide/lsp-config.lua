@@ -13,6 +13,7 @@ local servers = {
   yamlls = {},
   taplo = {},
   textlsp = {},
+  lemminx = {},
 }
 
 -- Load Server

@@ -123,6 +123,11 @@ run = "plugin system-clipboard"
 # Goto:
 
 [[mgr.prepend_keymap]]
+on = ["g", "<Space>"]
+run = "cd --interactive"
+desc = "Jump interactively"
+
+[[mgr.prepend_keymap]]
 on = ["g", "f", "l"]
 run = "follow"
 desc = "Follow hovered symlink"
@@ -144,16 +149,16 @@ desc = "Goto Trash"
 
 [[mgr.prepend_keymap]]
 on = ["g", "c"]
-run = "cd ~/.config"
+run = "cd ~/dotfiles"
 desc = "Goto Config Files"
 
 [[mgr.prepend_keymap]]
-on = ["g", "d", "e"]
+on = ["g", "e"]
 run = "cd ~/Desktop"
 desc = "Goto Desktop"
 
 [[mgr.prepend_keymap]]
-on = ["g", "d", "o"]
+on = ["g", "D"]
 run = "cd ~/Documents"
 desc = "Goto Documents"
 
@@ -163,7 +168,7 @@ run = "cd ~/res"
 desc = "Goto Resources"
 
 [[mgr.prepend_keymap]]
-on = ["g", "d", "w"]
+on = ["g", "w"]
 run = "cd ~/Downloads"
 desc = "Goto Downloads"
 
@@ -178,9 +183,19 @@ run = "cd ~/.local"
 desc = "Goto Local Config"
 
 [[mgr.prepend_keymap]]
-on = ["g", "<Space>"]
-run = "cd --interactive"
-desc = "Jump interactively"
+on = ["g", "d", "p"]
+run = "cd ~/Documents/Personal"
+desc = "Goto personal docs"
+
+[[mgr.prepend_keymap]]
+on = ["g", "d", "t"]
+run = "cd ~/Documents/TestAcc-bx"
+desc = "Goto test account"
+
+[[mgr.prepend_keymap]]
+on = ["g", "d", "o"]
+run = "cd ~/Documents/Obsidian"
+desc = "Goto Obsidian storage"
 
 ####################################################
 #############      Yazi UI      ####################
