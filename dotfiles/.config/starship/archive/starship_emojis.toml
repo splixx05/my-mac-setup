@@ -1,13 +1,8 @@
 format = """
-[╭─────── ](bold #769ff0)$os$directory$package$git_branch$git_status$fill$cmd_duration$time[───────╮ ](bold #769ff0)
-[╰───](bold #769ff0)$character"""
+[╭────────](bold #00E5FF)$character$os$directory$package$git_branch$git_status
+[╰─](bold #00E5FF)$character"""
 
-right_format = '[ ❮───╯](bold #769ff0)'
-add_newline = true
-
-[fill]
-symbol = ' '
-style = 'bold black'
+right_format = '$cmd_duration$time'
 
 [os]
 format = '[$symbol]($style)(os.sympols)'
@@ -15,7 +10,7 @@ style = ''
 disabled = false
 
 [character]
-success_symbol = '[❯](bold #769ff0)'
+success_symbol = '[❯](bold #00E5FF)'
 error_symbol = '[✕](bold #FF8787)'
 
 [directory]
@@ -23,37 +18,26 @@ style = "fg:#769ff0"
 format = "[ $path ]($style)(read_only)(read_only_style)"
 truncation_length = 3
 truncation_symbol = ".../"
-read_only = "󰌾 "
+read_only = " 🔒"
 read_only_style = "fg:#FF6B6B"
-home_symbol = "  ~"
+home_symbol = "🏠 ~"
 
 [directory.substitutions]
-"Documents" = " 󰈙  "
-"Downloads" = "   "
-"Music" = "   "
-"Pictures" = "   "
-"Desktop" = "   "
-"Movies" = "   "
+"Documents" = " 🧾 "
+"Downloads" = " ⬇️ "
+"Music" = " 🎵 "
+"Pictures" = " 🖼️ "
+"Desktop" = " 🖥️ "
+"Movies" = " 🎬 "
 
 [git_branch]
-symbol = '[  ](fg:#0db9d7)'
+symbol = "  "
 style = ""
 format = '[[ $symbol $branch ](fg:#00E5FF)]($style)'
 
 [git_status]
-# style = "bold fg:"
-format = '[($all_status$ahead_behind )]($style)'
-conflicted = '[=](#f7768e)'
-ahead = '[⇡${count}](#7aa2f7)'
-behind = '[⇣${count}](#FFAA66)'
-diverged = '[⇕${count}](#CBA6F7)'
-up_to_date = '[](#8CCF7E)'
-untracked = '[?${count}](#FFD580)'
-stashed = '[${count}](#A099FF)'
-modified = '[!${count](#00B7EB)}'
-staged = '[+${count}](#8CCF7E)'
-renamed = '[»${count}](#1793D1)'
-deleted = '[✘${count}](#f7768e)'
+style = ""
+format = '[[ $symbol $branch ](fg:#00E5FF)]($style)'
 
 [nodejs]
 symbol = ""
@@ -79,13 +63,13 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 disabled = false
 min_time = 2_000
 style = "fg:#00E5FF"
-format = '[$duration  ]($style)'
+format = '[$duration ⏳]($style)'
 
 [time]
 disabled = false
-time_format = "%R"              # Hour:Minute Format
+time_format = "%R"            # Hour:Minute Format
 style = "fg:#769ff0"
-format = '[ $time   ]($style)'
+format = '[ $time 🕒]($style)'
 
 [package]
 symbol = "󰏗 "

@@ -1,0 +1,64 @@
+format = """
+[](bold fg:#a7b1da)\
+$directory\
+$git_branch\
+$git_status\
+\n$character"""
+
+right_format = """
+$cmd_duration\
+$time"""
+
+follow_symlinks = true
+
+[character]
+success_symbol = '[➜ ](#7aa2f7)'
+error_symbol = '[✖ ](#f7768e)'
+
+[directory]
+style = "fg:#7aa2f7"
+format = "[ $path ]($style)[$read_only]($read_only_style)"
+truncation_length = 3
+truncation_symbol = ".../ "
+read_only = "󰌾 "
+read_only_style = "fg:#FFD580"
+home_symbol = "   ~"
+
+[directory.substitutions]
+"Documents" = " 󰈙  "
+"Downloads" = "   "
+"Music" = "   "
+"Pictures" = "   "
+"Desktop" = "   "
+"Movies" = "   "
+
+[git_branch]
+symbol = ""
+style = "fg:#0db9d7"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+# style = "bold fg:"
+format = '[($all_status$ahead_behind )]($style)'
+conflicted = '[=](#f7768e)'
+ahead = '[⇡${count}](#7aa2f7)'
+behind = '[⇣${count}](#FFAA66)'
+diverged = '[⇕${count}](#CBA6F7)'
+up_to_date = '[](#8CCF7E)'
+untracked = '[?${count}](#FFD580)'
+stashed = '[${count}](#A099FF)'
+modified = '[!${count](#00B7EB)}'
+staged = '[+${count}](#8CCF7E)'
+renamed = '[»${count}](#1793D1)'
+deleted = '[✘${count}](#f7768e)'
+
+[cmd_duration]
+min_time = 500
+style = "bold #7aa2f7"
+format = '[$duration]($style)'
+
+[time]
+disabled = false
+time_format = "%R"              # Hour:Minute Format
+style = "fg:#a7b1da"
+format = '[ $time   ]($style)'
