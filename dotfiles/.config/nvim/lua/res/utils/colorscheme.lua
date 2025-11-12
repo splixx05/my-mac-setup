@@ -1,8 +1,9 @@
 return {
-  Foreground = "#a7b1da",
+  -- Foreground = "#a7b1da",
+  Foreground = "#B4C9FF",
   Background = "#23283d",
   Accent = "#7aa2f7",
-  Highlight = "#B4C9FF",
+  Highlight = "#A0CFFF",
   CursorForeground = "#7aa2f7",
   CursorBackground = "#3f486b",
   Visual = "#283457",

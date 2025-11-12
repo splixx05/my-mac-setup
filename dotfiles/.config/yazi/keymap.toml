@@ -197,6 +197,11 @@ on = ["g", "d", "o"]
 run = "cd ~/Documents/Obsidian"
 desc = "Goto Obsidian storage"
 
+[[mgr.prepend_keymap]]
+on = ["g", "m"]
+run = "cd ~/Music"
+desc = "Goto Music"
+
 ####################################################
 #############      Yazi UI      ####################
 ####################################################
