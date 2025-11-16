@@ -3,11 +3,16 @@
 
 // --------------- CUSTOMIZE ME ---------------
 // the following dimensions are specified in pixels
-const WIDTH = 500; // width of the widget
-const TOP = 25; // top margin
-const LEFT = 25; // left margin
-const BOTTOM = 300; // bottom margin
-const BACKGROUND_COLOR = "rgba(0, 0, 0, 0)";
+const WIDTH = 309; // width of the widget
+const TOP = 250; // top margin
+const LEFT = 69; // left margin
+const BOTTOM = 24; // bottom margin
+const BACKGROUND_COLOR = "rgba(40, 52, 87, 0.7)";
+const CURR_COLOR = "rgba(255, 107, 107, 0.7)";
+const FOREGROUND_COLOR = "rgba(180, 201, 255, 0.7)";
+const DONE_COLOR = "rgba(63, 72, 107, 0.7)";
+const ACC_COLOR = "rgba(0, 198, 225, 0.7)";
+const HIGH_COLOR = "rgba(160, 207, 255, 0.7)";
 const REFRESH_FREQUENCY = 600; // widget refresh frequency in seconds
 const CALENDAR_APP = "/System/Applications/Calendar.app";
 const DEBUG_LOG = false;
@@ -29,10 +34,10 @@ function getData(dispatch, offset) {
   // construct bash command to grab today's events
   // Refer to https://hasseg.org/icalBuddy/man.html
   const commandString =
-    "/opt/homebrew/opt/ical-buddy/bin/icalBuddy " +
+    "/opt/homebrew/bin/icalBuddy " +
     '-npn -nrd -b "<newevent>" -nnr "<newline>" -ps "||" ' +
-    '-iep "datetime,title,location,/* notes */" ' +
-    '-po "datetime,title,location,/* notes */" ' +
+    '-iep "datetime,title,location,notes" ' +
+    '-po "datetime,title,location,notes" ' +
     '-tf "%H:%M" -df "%Y-%m-%d" ' +
     `eventsFrom:today${offsetString} to:today${offsetString}`;
   run(commandString).then((output) =>
@@ -55,35 +60,35 @@ export const className = `
   bottom: ${BOTTOM}px;
   width: ${WIDTH}px;
   .calendar-widget {
-    padding-top: 5px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
+  position: relative;
+  z-index: 9999 !important;
+    border: 1px solid;
+    border-color: rgba(180, 201, 255, 0.7);
+    padding: 20px 15px 20px 15px;
     background: ${BACKGROUND_COLOR};
-    backdrop-filter: blur(2px);
-    color: #FFFFFF;
+    backdrop-filter: blur(15px) !important;
+    color: ${FOREGROUND_COLOR};
     font-family: Roboto;
     overflow: hidden;
-    z-index: 0;
+    border-radius: 25px;
   }
   .header {
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   .date-header {
-    font-size: 23px;
+    font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
     margin-right: 8px;
   }
   .button-offset {
-    color: #A9A9A9;
-    font-size: 15px;
+    color: ${FOREGROUND_COLOR};
+    font-size: 12px;
     user-select: none;
   }
   .left-margin {
-    margin-left: 7px;
+    margin-left: 5px;
   }
   .icon-container {
     display: inline-block;
@@ -92,22 +97,21 @@ export const className = `
   }
   .event {
     font-size: 15px;
-    line-height: 1.8;
   }
   .event-details {
-    font-weight: bold;
-    border-left: solid 3px;
-    border-radius: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 13px;
+    font-weight: normal;
+    border-left: solid 4px;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     width: ${WIDTH - 5}px;
-    left: 0px;
+    left: 8px;
   }
   .meetingLink {
-    margin-left: 15px;
+    margin-left: 5px;
   }
 `;
 
@@ -115,9 +119,7 @@ const line_regex =
   /^(\d+-\d+-\d+)?(?: at )?(\d+:\d+) - (\d+-\d+-\d+)?(?: at )?((?:\d+:\d+)|(?:\.\.\.))([^]*)?([^]*)?([^]*)?$/;
 const zoom_link_regex =
   /(https:\/\/[a-z]{2,20}.zoom.[a-z]{2,3}\/j\/[^\n <>"]*)/;
-// const gmeet_link_regex = /(https:\/\/meet\.google\.com\/[^\n <>"]*)/;
-const gmeet_link_regex =
-  /(https:\/\/meet\.google\.com\/(?:[a-zA-Z0-9-]+|lookup\/[a-zA-Z0-9-]+))/;
+const gmeet_link_regex = /(https:\/\/meet\.google\.com\/[^\n <>"]*)/;
 const teams_link_regex =
   /(https:\/\/teams\.microsoft\.com\/l\/meetup-join\/[^\n <>"]*)/;
 
@@ -155,7 +157,7 @@ function processEvents(output) {
         zoom_link: getLink(result[6] + " " + result[7], zoom_link_regex),
         gmeet_link: getLink(result[6] + " " + result[7], gmeet_link_regex),
         teams_link: getLink(result[6] + " " + result[7], teams_link_regex),
-        /* notes: result[7], */
+        notes: result[7],
       });
     }
   });
@@ -234,7 +236,7 @@ function Header({ date, offset, show_events, dispatch }) {
       />
       <div className="icon-container">
         <i
-          title={`${show_events ? "Hide" : "Show"} events`}
+          title={`${show_events ? "Show" : "Hide"} events`}
           className={`fa fa-eye${
             show_events ? "-slash" : ""
           } header button-offset left-margin`}
@@ -273,7 +275,7 @@ function Events({ date, offset, events }) {
 
 function Event({ event, offset, current_time }) {
   if (event.all_day) {
-    const color = offset < 0 ? "#808080" : "#FFF";
+    const color = offset < 0 ? HIGH_COLOR : ACC_COLOR;
     return (
       <div
         key={event.title}
@@ -282,9 +284,6 @@ function Event({ event, offset, current_time }) {
         style={{ color: color }}
       >
         {event.title}
-        {event.location && (
-          <div className="event-room">Room: {event.location}</div>
-        )}
       </div>
     );
   } else {
@@ -296,18 +295,22 @@ function Event({ event, offset, current_time }) {
           : 4;
     const color =
       offset > 0
-        ? "#FFF"
+        ? FOREGROUND_COLOR
         : offset < 0 || current_time >= event.end_time
-          ? "#808080"
+          ? DONE_COLOR
           : current_time - event.start_time >= -0.5 &&
               current_time <= event.end_time
-            ? "#e74c3c"
-            : "#FFFFFF";
+            ? CURR_COLOR
+            : FOREGROUND_COLOR;
     return (
       <div
         key={event.title}
         className="event event-details"
-        title={event.calendar !== "" ? `Calendar:\n${event.calendar}` : ""}
+        title={
+          (event.calendar !== "" ? `Calendar:\n${event.calendar}` : "") +
+          (event.location !== "" ? `\n\nLocation:\n${event.location}` : "") +
+          (event.notes !== "" ? `\n\nNotes:\n${event.notes}` : "")
+        }
         style={{ color: color, borderLeft: `solid ${border_thickness}px` }}
       >
         {event.start_time_str === "0:00" && event.end_time_str === "0:00"
@@ -318,19 +321,16 @@ function Event({ event, offset, current_time }) {
         <Link label="teams" values={event.teams_link} color={color} />
         <br />
         {event.title}
-        {event.location && (
-          <div className="event-room">Room: {event.location}</div>
-        )}
       </div>
     );
   }
 }
 
 function Loading() {
-  return <div className="event">Looking for events...</div>;
+  return <div className="event">...loading...</div>;
 }
 function NoEvents() {
-  return <span className="event">No events found !</span>;
+  return <span className="event">No events.</span>;
 }
 
 function Link({ label, values, color }) {
@@ -364,11 +364,7 @@ export function render({ output, offset, show_events }, dispatch) {
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Gayathri:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
+      ></link>
       <Header
         date={dateToShow}
         offset={offset}
