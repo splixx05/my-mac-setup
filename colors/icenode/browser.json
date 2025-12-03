@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "CoolNight",
+  "theme": {
+    "colors": {
+      "frame": [2, 7, 18],
+      "toolbar": [2, 7, 18],
+      "tab_text": [248, 255, 255],
+      "button_background": [0, 236, 198],
+      "bookmark_text": [248, 255, 255],
+      "ntp_background": [0, 236, 198],
+      "ntp_text": [2, 7, 18]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#E0F0F0'
+
+  normal:
+    black:   '#000000'
+    red:     '#C07A40'
+    green:   '#102050'
+    yellow:  '#A07840'
+    blue:    '#103060'
+    magenta: '#103070'
+    cyan:    '#203050'
+    white:   '#F0F0F0'
+
+  cursor:
+    cursor: '#F0F0F0'
+    text:   '#000000'
+

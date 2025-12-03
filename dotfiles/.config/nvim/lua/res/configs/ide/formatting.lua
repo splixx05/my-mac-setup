@@ -15,6 +15,7 @@ conform.setup({
     sh = { "shfmt" },
     bash = { "shfmt" },
     toml = { "taplo" },
+    yaml = { "prettier" },
   },
   format_on_save = {
     lsp_fallback = true,

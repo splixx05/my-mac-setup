@@ -1,57 +1,139 @@
-return {
-  -- Foreground = "#a7b1da",
-  Foreground = "#B4C9FF",
-  Background = "#23283d",
-  Accent = "#7aa2f7",
-  Highlight = "#A0CFFF",
-  CursorForeground = "#7aa2f7",
-  CursorBackground = "#3f486b",
-  Visual = "#283457",
-  CursorLine = "#283457",
-  CursorLineNr = "#B4C9FF",
-  LineNr = "#a7b1da",
+local M = {}
 
-  Comment = "#5C6773",
-  Todo = "#34eb83",
+-- =========================================================
+-- 🎨 PALETTE SECTION —
+-- =========================================================
+local c = require("res.utils.colors")
 
-  Constant = "#FFD580",
-  String = "#A0CFFF",
-  Character = "#7aa2f7",
-  Number = "#FFAA66",
-  Boolean = "#FF6B6B",
-  Float = "#7aa2f7",
+-- =========================================================
+-- 🧠 Helper
+-- =========================================================
+local function hi(group, opts)
+  vim.api.nvim_set_hl(0, group, opts)
+end
 
-  Identifier = "#5CAEFF",
-  Function = "#5CAEFF",
+-- =========================================================
+-- 🎨 HIGHLIGHTS SECTION —
+-- =========================================================
+local highlights = {
+  -- UI / Editor
+  Normal = { fg = c.fg.main, bg = c.bg.main },
+  NormalNC = { fg = c.fg.main, bg = c.bg.main },
+  Cursor = { fg = c.prim.main, bg = c.bg.main },
+  CursorLine = { bg = c.grey.deep },
+  CursorLineNr = { fg = c.fg.acc, bold = true },
+  LineNr = { fg = c.grey.light },
+  Visual = { bg = c.grey.deep },
+  SignColumn = { bg = c.bg.main },
+  ColorColumn = { bg = c.bg.sec },
+  StatusLine = { fg = c.fg.main, bg = c.bg.sec },
+  StatusLineNC = { fg = c.grey.light, bg = c.bg.sec },
+  StatusLineTerm = { fg = c.fg.main, bg = c.bg.sec },
+  StatusLineTermNC = { fg = c.grey.light, bg = c.bg.sec },
+  VertSplit = { fg = c.bg.main, bg = c.bg.main },
 
-  Statement = "#CBA6F7",
-  Conditional = "#CBA6F7",
-  Repeat = "#CBA6F7",
-  Label = "#00c6e1",
-  Operator = "#A099FF",
-  Keyword = "#A099FF",
-  Exception = "#FF6B6B",
+  -- Comments
+  Comment = { fg = c.grey.light, italic = true },
+  Todo = { fg = c.prim.soft, bold = true },
 
-  PreProc = "#7aa2f7",
-  Include = "#CBA6F7",
-  Define = "#7aa2f7",
-  Macro = "#7aa2f7",
+  -- Constants
+  Constant = { fg = c.yellow.main },
+  String = { fg = c.fg.hi },
+  Character = { fg = c.blue.main },
+  Number = { fg = c.orange.main },
+  Boolean = { fg = c.prim.deep },
+  Float = { fg = c.prim.soft },
 
-  Type = "#A099FF",
-  StorageClass = "#7aa2f7",
-  Structure = "#00c6e1",
-  Typedef = "#FF6B6B",
+  -- Identifiers
+  Identifier = { fg = c.prim.deep },
+  Function = { fg = c.prim.main, bold = true },
+  Builtin = { fg = c.prim.deep },
+  Search = { fg = c.magenta.main, bg = none },
+  IncSearch = { fg = c.prim.deep },
+  MatchParen = { fg = c.green.main },
 
-  Special = "#34eb83",
-  SpecialChar = "#41ffa4",
-  Tag = "#CBA6F7",
-  Delimiter = "#34eb83",
-  SpecialComment = "#B4C9FF",
-  Debug = "#FF6B6B",
+  -- Statements
+  Statement = { fg = c.magenta.main },
+  Conditional = { fg = c.magenta.main },
+  Repeat = { fg = c.magenta.main },
+  Label = { fg = c.prim.soft },
+  Operator = { fg = c.violet.main },
+  Keyword = { fg = c.violet.main, italic = true },
+  Exception = { fg = c.red.main },
 
-  Underlined = "#A0CFFF",
-  Ignore = "#5C6773",
-  Error = "#FF6B6B",
-  Warning = "#FFAA66",
-  Boarder = "#7aa2f7",
+  -- Preprocessor
+  PreProc = { fg = c.blue.main },
+  Include = { fg = c.magenta.main },
+  Define = { fg = c.blue.main },
+  Macro = { fg = c.blue.main },
+  Error = { fg = c.red.main },
+  NormalFloat = { fg = c.prim.main, bg = none },
+  Floatborder = { fg = c.prim.main, bg = none },
+
+  -- Types
+  Type = { fg = c.violet.main },
+  StorageClass = { fg = c.blue.main },
+  Structure = { fg = c.cyan.main },
+  Typedef = { fg = c.red.main },
+
+  -- Specials
+  Special = { fg = c.prim.deep },
+  SpecialChar = { fg = c.prim.soft },
+  Tag = { fg = c.magenta.main },
+  Delimiter = { fg = c.grey.light },
+  SpecialComment = { fg = c.fg.acc },
+  Debug = { fg = c.red.main },
+
+  -- Diagnostics
+  DiagnosticError = { fg = c.red.main },
+  DiagnosticWarn = { fg = c.orange.main },
+  DiagnosticInfo = { fg = c.blue.main },
+  DiagnosticHint = { fg = c.cyan.main },
+
+  -- Diff
+  DiffAdd = { bg = c.green.main },
+  DiffDelete = { bg = c.red.main },
+  DiffChange = { bg = c.blue.main },
+
+  -- LSP
+  LspReferenceText = { bg = c.bg.comp },
+  LspReferenceRead = { bg = c.bg.comp },
+  LspReferenceWrite = { bg = c.bg.comp },
+
+  -- Treesitter ------------------------------
+
+  -- Operators & Punctuation
+  ["@number"] = { fg = c.orange.main },
+  ["@type"] = { fg = c.violet.main },
+  ["@type.builtin"] = { fg = c.magenta.main },
+  ["@type.definition"] = { fg = c.prim.deep },
+  ["@punctuation"] = { fg = c.grey.light },
+  ["@operator"] = { fg = c.fg.hi },
+  ["@punctuation.delimiter"] = {},
+  ["@punctuation.bracket"] = {},
+  ["@punctuation.special"] = {},
+
+  -- Variables
+  ["@variable.builtin"] = { fg = c.fg.acc },
+  ["@variable"] = { fg = c.fg.main },
+
+  -- Fields / Properties
+  ["@field"] = { fg = c.prim.deep },
+  ["@property"] = { fg = c.cyan.main },
+
+  ["@function"] = { fg = c.prim.main },
+  ["@function.builtin"] = { fg = c.prim.deep },
+  ["@string"] = { fg = c.fg.hi },
+  ["@string.escape"] = { fg = c.green.main },
 }
+
+-- =========================================================
+-- 🚀 SETUP
+-- =========================================================
+function M.setup()
+  for group, opts in pairs(highlights) do
+    hi(group, opts)
+  end
+end
+
+return M

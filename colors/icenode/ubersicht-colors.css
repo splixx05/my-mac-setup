@@ -1,0 +1,53 @@
+:root {
+  --primary: #00ecc6;
+  --primary-deep: #009e8c;
+  --primary-soft: #5ff5df;
+
+  --bg: #020712;
+  --bg-slate: #0f2e3f;
+  --bg-night: #061b2b;
+
+  --fg: #f8ffff;
+  --fg-bright: #d9fbff;
+
+  --blue: #178fff;
+  --purple: #7a5cff;
+  --magenta: #e178ff;
+
+  --warn: #ffdf6e;
+  --err: #ff6e8a;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, Inter, sans-serif;
+}
+
+.widget {
+  background: var(--bg-night);
+  color: var(--fg);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--bg-slate);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.widget-accent {
+  background: var(--primary-deep);
+  color: var(--bg);
+}
+
+.widget-title {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.widget-error {
+  color: var(--err);
+}
+
+.widget-warn {
+  color: var(--warn);
+}

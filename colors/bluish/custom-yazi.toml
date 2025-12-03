@@ -1,0 +1,18 @@
+[flavor]
+bg = "#000000"
+fg = "#E0F0F0"
+working = "#203050"
+title = "#103060"
+border = "#001020"
+
+[filetype]
+dir = "#102050"
+file = "#E0F0F0"
+symlink = "#103070"
+exec = "#C07A40"
+
+[status]
+progress = "#203050"
+success = "#9ece6a"
+error = "#C07A40"
+

@@ -1,9 +1,8 @@
 format = """
-[╭─  ](bold #769ff0)$os$directory$package$git_branch$git_status$fill$cmd_duration$time[─╮ ](bold #769ff0)
-[╰─](bold #769ff0)$character"""
+[╭─  ](bold #4A6070)$os$directory$package$git_branch$git_status$fill$cmd_duration$time[─╮ ](bold #4A6070)
+[╰─](bold #4A6070)$character"""
 
-# right_format = '[ ❮─╯](bold #769ff0)'
-right_format = '[ ─╯](bold #769ff0)'
+right_format = '[ ─╯](bold #4A6070)'
 add_newline = true
 
 [fill]
@@ -11,21 +10,21 @@ symbol = ' '
 style = 'bold black'
 
 [os]
-format = '[$symbol]($style)(os.sympols)'
+format = '[$symbol]($os.sympols)'
 style = ''
 disabled = false
 
 [character]
-success_symbol = '[❯](bold #769ff0)'
-error_symbol = '[✕](bold #FF8787)'
+success_symbol = '[❯](bold #00baff)'
+error_symbol = '[✕](bold #FF6E8A)'
 
 [directory]
-style = "fg:#769ff0"
+style = "fg:#00baff"
 format = "[ $path ]($style)(read_only)(read_only_style)"
 truncation_length = 3
 truncation_symbol = ".../"
 read_only = "󰌾 "
-read_only_style = "fg:#FF6B6B"
+read_only_style = "fg:#FF6E8A"
 home_symbol = "  ~"
 
 [directory.substitutions]
@@ -39,101 +38,72 @@ home_symbol = "  ~"
 [git_branch]
 symbol = '[  ](fg:#00E5FF)'
 style = ""
-format = '[[ $symbol $branch ](fg:#00B7EB)]($style)'
+format = '[[ $symbol $branch ](fg:#7A5CFF)]($style)'
 
 [git_status]
 # style = "bold fg:"
 format = '[($all_status$ahead_behind )]($style)'
 conflicted = '[ =](#f7768e)'
-ahead = '[ ⇡${count}](#7aa2f7)'
+ahead = '[ ⇡${count}](#178FFF)'
 behind = '[ ⇣${count}](#FFAA66)'
-diverged = '[ ⇕${count}](#CBA6F7)'
-up_to_date = '[ ](#8CCF7E)'
-untracked = '[ ?${count}](#FFD580)'
-stashed = '[ ${count}](#A099FF)'
+diverged = '[ ⇕${count}](#E178FF)'
+up_to_date = '[ ](#38ff9c)'
+untracked = '[ ?${count}](#FFDF6E)'
+stashed = '[ ${count}](#7A5CFF)'
 modified = '[ !${count}](#00B7EB)'
-staged = '[ +${count}](#8CCF7E)'
-renamed = '[ »${count}](#1793D1)'
+staged = '[ +${count}](#38ff9c)'
+renamed = '[ »${count}](#178FFF)'
 deleted = '[ ✘${count}](#f7768e)'
 
 [nodejs]
 symbol = ""
-style = "bg:#212736"
+style = "bg:#6DA55F"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#212736"
+style = "bg:#DEA584"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:#212736"
+style = "bg:#00ADD8"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [php]
 symbol = ""
-style = "bg:#212736"
+style = "bg:#777BB4"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [cmd_duration]
 disabled = false
 min_time = 2_000
-style = "fg:#00B7EB"
+style = "fg:#007caa"
 format = '[$duration  ]($style)'
 
 [time]
 disabled = false
 time_format = "%R"              # Hour:Minute Format
-style = "fg:#769ff0"
+style = "fg:#00baff"
 format = '[ $time   ]($style)'
 
 [package]
 symbol = "󰏗 "
 
 [os.symbols]
-Alpaquita = " "
-Alpine = " "
-AlmaLinux = " "
-Amazon = " "
-Android = " "
 Arch = '[ ](#1793D1)'
-Artix = " "
-CachyOS = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Kali = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-Nobara = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-RockyLinux = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Void = " "
-Windows = "󰍲 "
+CachyOS = '[ ](#1793D1)'
+CentOS = '[ ](#990000)'
+Debian = '[ ](#D70A53)'
+EndeavourOS = '[ ](#6D02A9)'
+Fedora = '[ ](#294172)'
+Gentoo = '[ ](#9101F4)'
+Kali = '[ ](#557C94)'
+Linux = '[ ](#FCD002)'
+Macos = '[ ](#979797)'
+Manjaro = '[ ](#38B03D)'
+Mint = '[ ](#87A87E)'
+NixOS = '[ ](#5277C3)'
+Ubuntu = '[ ](#E95420)'
+Unknown = '[ ](#808080)'
+Void = '[ ](#FF8B00)'

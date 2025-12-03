@@ -25,8 +25,8 @@ local config = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
       -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+      normal = { c = { fg = colors.fg.main, bg = colors.bg.main } },
+      inactive = { c = { fg = colors.fg.main, bg = colors.bg.main } },
     },
   },
   sections = {
@@ -72,7 +72,7 @@ ins_left({
   -- mode component
   function()
     local mode_icons = {
-      n = "", -- Normal
+      n = "", -- Normal
       i = "", -- Insert
       v = "", -- Visual
       [""] = "", -- Visual block
@@ -172,7 +172,7 @@ ins_left({
 ins_left({
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.fg, gui = "bold" },
+  color = { fg = colors.fg.main, gui = "bold" },
 })
 
 ins_left({
@@ -193,7 +193,7 @@ ins_left({
     return msg
   end,
   icon = " LSP:",
-  color = { fg = colors.fg, gui = "bold" },
+  color = { fg = colors.fg.main, gui = "bold" },
 })
 
 -- Add components to right sections

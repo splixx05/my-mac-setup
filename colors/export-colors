@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PALETTE="$HOME/.config/colors/palette.toml"
+OUTDIR="$HOME/.config/colors/export"
+
+mkdir -p "$OUTDIR"
+
+# --- deps -------------------------------------------------------------------
+missing=()
+command -v yq >/dev/null 2>&1 || missing+=("yq")
+command -v jq >/dev/null 2>&1 || missing+=("jq")
+if [ ${#missing[@]} -ne 0 ]; then
+  echo "Error: Missing dependencies: ${missing[*]}"
+  echo "Install: sudo pacman -S ${missing[*]}"
+  exit 1
+fi
+
+# --- JSON --------------------------------------------------------------------
+yq -o=json "$PALETTE" > "$OUTDIR/colors.json"
+
+# --- YAML --------------------------------------------------------------------
+# Mike Farah yq: use -o=yaml or -oy for YAML output
+yq -o=yaml "$PALETTE" > "$OUTDIR/colors.yaml"
+
+# --- Lua (Neovim) -----------------------------------------------------------
+# Convert JSON palette -> simple Lua table
+yq -o=json "$PALETTE" | jq -r '
+  .palette as $p |
+  "return {\n" +
+  ( $p | to_entries | map("  " + .key + " = \"" + .value + "\",") | join("\n") ) +
+  "\n}"
+' > "$OUTDIR/colors.lua"
+
+# --- Starship & Yazi (TOML) -------------------------------------------------
+cp "$PALETTE" "$OUTDIR/colors-starship.toml"
+cp "$PALETTE" "$OUTDIR/colors-yazi.toml"
+
+# --- Kitty config -----------------------------------------------------------
+# Simple mapping: generate lines like `color_name #hex`
+yq -o=json "$PALETTE" | jq -r '.palette | to_entries[] | .key + " " + .value' > "$OUTDIR/colors-kitty.conf"
+
+echo "Colors exported to $OUTDIR ✔️"

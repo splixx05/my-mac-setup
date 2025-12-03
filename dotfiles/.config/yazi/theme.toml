@@ -1,8 +1,7 @@
 [flavor]
-# use = "tokyo-night"
-# dark = "tokyo-night"
-use = "tokyonight-storm"
-dark = "tokyonight-storm"
+
+use = "icenode"
+dark = "icenode"
 
 [icon]
 

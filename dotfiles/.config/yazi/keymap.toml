@@ -149,7 +149,7 @@ desc = "Goto Trash"
 
 [[mgr.prepend_keymap]]
 on = ["g", "c"]
-run = "cd ~/dotfiles"
+run = "cd ~/.config"
 desc = "Goto Config Files"
 
 [[mgr.prepend_keymap]]
@@ -196,6 +196,11 @@ desc = "Goto test account"
 on = ["g", "d", "o"]
 run = "cd ~/Documents/Obsidian"
 desc = "Goto Obsidian storage"
+
+[[mgr.prepend_keymap]]
+on = ["g", "d", "c"]
+run = "cd ~/Dotfiles"
+desc = "Goto Dotfiles"
 
 [[mgr.prepend_keymap]]
 on = ["g", "m"]

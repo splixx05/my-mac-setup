@@ -1,8 +1,18 @@
-local hl = require("res.utils.highlight")
-local set_hl = vim.api.nvim_set_hl
+local c = require("res.utils.colors")
+local set = vim.api.nvim_set_hl
 
-set_hl(0, "Normal", { link = "NormalFloat" })
-set_hl(0, "Border", { link = "FloatBorder" })
-set_hl(0, "SelectionCaret", { fg = hl.Accent, bg = hl.Background, bold = true })
-set_hl(0, "Selection", { fg = hl.Accent, bg = hl.Background, bold = true })
-set_hl(0, "Matching", { fg = hl.Special, bg = hl.Background, bold = true })
+-- Basic dashboard styling
+set(0, "Normal", { fg = c.fg.main, bg = c.bg.main })
+set(0, "NormalFloat", { fg = c.fg.main, bg = c.bg.main })
+set(0, "FloatBorder", { fg = c.prim.main, bg = c.bg.main })
+
+-- Dashboard-specific groups (alpha.nvim)
+set(0, "AlphaHeader", { fg = c.prim.main, bg = c.bg.main, bold = true })
+set(0, "AlphaButtons", { fg = c.fg.acc, bg = c.bg.main })
+set(0, "AlphaShortcut", { fg = c.violet.main, bg = c.bg.main })
+set(0, "AlphaFooter", { fg = c.grey.light, bg = c.bg.main })
+
+-- Selection (for menus or telescope-style prompts inside dashboard)
+set(0, "SelectionCaret", { fg = c.prim.main, bg = c.bg.main, bold = true })
+set(0, "Selection", { fg = c.fg.acc, bg = c.bg.main, bold = true })
+set(0, "Matching", { fg = c.prim.soft, bg = c.bg.main, bold = true })

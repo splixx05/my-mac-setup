@@ -1,0 +1,31 @@
+return {
+  prim = {
+    main = "#00ECC6",
+    deep = "#009E8C",
+    soft = "#5FF5DF",
+  },
+
+  bg = {
+    main = "#202833",
+    sec = "#0A1320",
+    comp = "#0F2E3F",
+  },
+
+  fg = {
+    main = "#B4C9FF",
+    acc = "#D9FBFF",
+    hi = "#A0CFFF",
+  },
+
+  black = "#061B2B",
+  grey = { light = "#4A6070", deep = "#283457" },
+  green = "#8CCF7E",
+  yellow = "#FFDF6E",
+  orange = "#FFAA66",
+  red = "#FF6E8A",
+  blue = "#178FFF",
+  cyan = "#00B7EB",
+  white = "#F8FFFF",
+  magenta = "#E178FF",
+  violet = "#7A5CFF",
+}

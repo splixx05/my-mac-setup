@@ -1,7 +1,7 @@
 # file: daily-quotes.widget/index.coffee
 
 command: "cat ~/.config/ubersicht/Widgets/Daily-Quotes.widget/quotes.json"
-refreshFrequency: 1000 * 60 * 10  # --> mls * sec * min // can be increased with h or w
+refreshFrequency: 1000 * 60 * 30  # --> mls * sec * min // can be increased with h or w
 
 render: (output) ->
   quotes = JSON.parse(output)
@@ -13,34 +13,40 @@ render: (output) ->
   </div>
   """
 style: """
-  .quote-box {
-    font-family: "Roboto", sans-serif;
-    color: rgba(180, 201, 255, 0.7);
-    width: 500px;
-    position: fixed;
-    top: 25%;
-    left: 45%;
-    transform: translate(-50%, -50%);  
+/* css */
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular.ttf') format('truetype');
+}
+.quote-box {
+  font-family: "Roboto", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  width: 500px;
+  position: fixed;
+  top: 85%;
+  left: 80%;
+  transform: translate(-50%, -50%);  
+}
+.quote-text {
+  font-size: 28px;
+  font-style: bold;
+  font-weight: bold;
+  text-align: left;
+}
+.quote-author {
+  font-size: 22px;
+  margin-top: 8px;
+  opacity: 0.8;
+  text-align: right;
   }
-  .quote-text {
-    font-size: 28px;
-    font-style: bold;
-    text-align: left;
-  }
-  .quote-author {
-    font-size: 22px;
-    margin-top: 8px;
-    opacity: 0.8;
-    text-align: right;
-  }
-  .next {
-    all: unset;
-    cursor: pointer;
-    color: rgba(180, 201, 255, 0.5);
-    font-size: 13px;
-    transition: color 0.2s;
-  }
-  .next:hover {
-  opavity: 0.9;
-  }
+.next {
+  all: unset;
+  cursor: pointer;
+  color: rgba(180, 201, 255, 0.5);
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.next:hover {
+opavity: 0.9;
+}
 """

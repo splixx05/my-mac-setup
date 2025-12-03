@@ -1,0 +1,20 @@
+
+[character]
+success_symbol = "[➜](#00ECC6)"
+error_symbol = "[➜](#FF6E8A)"
+
+[prompt]
+order = ["character", "directory", "git_branch", "git_status"]
+
+[directory]
+style = "fg:#020712 bg:#00ECC6"
+format = "[$path]($style)"
+
+[git_branch]
+symbol = " "
+style = "fg:#D9FBFF bg:#061B2B"
+format = "[ $symbol$branch ]($style)"
+
+[git_status]
+style = "fg:#FFDF6E bg:#061B2B"
+format = "[$all_status$ahead_behind ]($style)"

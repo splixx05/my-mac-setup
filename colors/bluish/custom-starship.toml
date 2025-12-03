@@ -1,0 +1,8 @@
+palette = "bluewave"
+
+[palettes.bluewave]
+black = "#000000"
+navy = "#001020"
+accent = "#203050"
+highlight = "#E0F0F0"
+warning = "#C07A40"

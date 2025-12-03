@@ -1,0 +1,20 @@
+[flavor]
+bg = "#020712"
+fg = "#F8FFFF"
+accent = "#00ECC6"
+cursor = "#F8FFFF"
+border = "#061B2B"
+highlight_bg = "#009E8C"
+highlight_fg = "#F8FFFF"
+
+[filetype]
+dir = "#178FFF"
+file = "#F8FFFF"
+link = "#7A5CFF"
+exec = "#00ECC6"
+
+[status]
+normal_fg = "#00ECC6"
+normal_bg = "#061B2B"
+error_fg = "#FF6E8A"
+warn_fg = "#FFDF6E"

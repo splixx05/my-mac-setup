@@ -1,0 +1,30 @@
+[palette]
+
+# Primary
+primary_black = "#000000"
+primary_navy_dark = "#000010"
+primary_navy = "#001020"
+
+# Depths
+depth1 = "#001010"
+depth2 = "#001020"
+depth3 = "#001030"
+
+# Mid blues
+mid1 = "#002040"
+mid2 = "#102050"
+mid3 = "#103060"
+
+# Accents
+accent_blue1 = "#203050"
+accent_blue2 = "#102050"
+accent_blue3 = "#103070"
+
+# Highlights
+highlight_ice = "#E0F0F0"
+highlight_white = "#F0F0F0"
+
+# Complementary tones
+comp_soft_amber = "#A07840"
+comp_orange_amber = "#C07A40"
+comp_soft_coral = "#F0D0D0"

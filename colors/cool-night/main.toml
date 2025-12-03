@@ -1,0 +1,25 @@
+# CoolNight Colorscheme
+# Main color based on: #00ECC6
+
+[primary]
+main = "#00ECC6"
+deep = "#009E8C"
+soft = "#5FF5DF"
+
+[background]
+deep_night = "#020712"
+night_blue = "#061B2B"
+slate = "#0F2E3F"
+
+[accent]
+blue = "#178FFF"
+purple = "#7A5CFF"
+soft_magenta = "#E178FF"
+
+[highlight]
+bright = "#D9FBFF"
+white = "#F8FFFF"
+
+[semantic]
+warning = "#FFDF6E"
+error = "#FF6E8A"

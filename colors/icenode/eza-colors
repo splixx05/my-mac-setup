@@ -1,0 +1,22 @@
+# CoolNight EZA Color Map
+
+# Core
+file=F8FFFF
+dir=178FFF
+exe=00ECC6
+link=7A5CFF
+
+# Git
+git-new=00ECC6
+git-modified=FFDF6E
+git-deleted=FF6E8A
+git-ignored=0F2E3F
+
+# Types
+socket=E178FF
+block-device=178FFF
+char-device=178FFF
+fifo=7A5CFF
+
+# Extras
+broken=FF6E8A

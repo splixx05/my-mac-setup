@@ -2,7 +2,7 @@
 [mgr]
 ratio = [2, 3, 4]
 linemode = "none"
-show_hidden = false
+show_hidden = true
 show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll"]
@@ -70,6 +70,20 @@ rules = [
     "edit",
     "reveal",
   ] },
+  # JSX & TSX
+  { name = "*.jsx", use = [
+    "edit",
+    "reveal",
+  ] },
+  { name = "*.tsx", use = [
+    "edit",
+    "reveal",
+  ] },
+  # JS
+  { name = "*.js", use = [
+    "edit",
+    "reveal",
+  ] },
   # Fallback
   { name = "*", use = [
     "open",
@@ -123,6 +137,8 @@ previewers = [
   # Code
   { mime = "text/*", run = "code" },
   { mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
+  # Javascript & derivates
+  { name = "*.{js,jsx,ts,tsx}", run = "code" },
   # JSON
   { mime = "application/{json,ndjson}", run = "json" },
   # Image
