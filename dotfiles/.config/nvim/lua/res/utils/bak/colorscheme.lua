@@ -20,27 +20,27 @@ local highlights = {
   Normal = { fg = c.fg.main, bg = c.bg.main },
   NormalNC = { fg = c.fg.main, bg = c.bg.main },
   Cursor = { fg = c.prim.main, bg = c.bg.main },
-  CursorLine = { bg = c.bg.slate },
+  CursorLine = { bg = c.grey.deep },
   CursorLineNr = { fg = c.fg.acc, bold = true },
-  LineNr = { fg = c.tone.grey.light },
-  Visual = { bg = c.bg.slate },
+  LineNr = { fg = c.grey.light },
+  Visual = { bg = c.grey.deep },
   SignColumn = { bg = c.bg.main },
-  ColorColumn = { bg = c.bg.main },
+  ColorColumn = { bg = c.bg.sec },
   StatusLine = { fg = c.fg.main, bg = c.bg.sec },
-  StatusLineNC = { fg = c.tone.grey.light, bg = c.bg.sec },
+  StatusLineNC = { fg = c.grey.light, bg = c.bg.sec },
   StatusLineTerm = { fg = c.fg.main, bg = c.bg.sec },
-  StatusLineTermNC = { fg = c.tone.grey.light, bg = c.bg.sec },
+  StatusLineTermNC = { fg = c.grey.light, bg = c.bg.sec },
   VertSplit = { fg = c.bg.main, bg = c.bg.main },
 
   -- Comments
-  Comment = { fg = c.tone.grey.light, italic = true },
+  Comment = { fg = c.grey.light, italic = true },
   Todo = { fg = c.prim.soft, bold = true },
 
   -- Constants
-  Constant = { fg = c.acc.yellow },
+  Constant = { fg = c.yellow.main },
   String = { fg = c.fg.hi },
-  Character = { fg = c.acc.blue },
-  Number = { fg = c.acc.orange },
+  Character = { fg = c.blue.main },
+  Number = { fg = c.orange.main },
   Boolean = { fg = c.prim.deep },
   Float = { fg = c.prim.soft },
 
@@ -48,52 +48,52 @@ local highlights = {
   Identifier = { fg = c.prim.deep },
   Function = { fg = c.prim.main, bold = true },
   Builtin = { fg = c.prim.deep },
-  Search = { fg = c.acc.magenta, bg = "NONE" },
+  Search = { fg = c.magenta.main, bg = "NONE" },
   IncSearch = { fg = c.prim.deep },
-  MatchParen = { fg = c.acc.green },
+  MatchParen = { fg = c.green.main },
 
   -- Statements
-  Statement = { fg = c.acc.magenta },
-  Conditional = { fg = c.acc.magenta },
-  Repeat = { fg = c.acc.magenta },
+  Statement = { fg = c.magenta.main },
+  Conditional = { fg = c.magenta.main },
+  Repeat = { fg = c.magenta.main },
   Label = { fg = c.prim.soft },
-  Operator = { fg = c.acc.violet },
-  Keyword = { fg = c.acc.violet, italic = true },
-  Exception = { fg = c.acc.red },
+  Operator = { fg = c.violet.main },
+  Keyword = { fg = c.violet.main, italic = true },
+  Exception = { fg = c.red.main },
 
   -- Preprocessor
-  PreProc = { fg = c.acc.blue },
-  Include = { fg = c.acc.magenta },
-  Define = { fg = c.acc.blue },
-  Macro = { fg = c.acc.blue },
-  Error = { fg = c.acc.red },
-  NormalFloat = { fg = c.prim.main, bg = c.bg.main },
-  Floatborder = { fg = c.prim.main, bg = c.bg.main },
+  PreProc = { fg = c.blue.main },
+  Include = { fg = c.magenta.main },
+  Define = { fg = c.blue.main },
+  Macro = { fg = c.blue.main },
+  Error = { fg = c.red.main },
+  NormalFloat = { fg = c.prim.main, bg = "NONE" },
+  Floatborder = { fg = c.prim.main, bg = "NONE" },
 
   -- Types
-  Type = { fg = c.acc.violet },
-  StorageClass = { fg = c.acc.blue },
-  Structure = { fg = c.acc.cyan },
-  Typedef = { fg = c.acc.red },
+  Type = { fg = c.violet.main },
+  StorageClass = { fg = c.blue.main },
+  Structure = { fg = c.cyan.main },
+  Typedef = { fg = c.red.main },
 
   -- Specials
   Special = { fg = c.prim.deep },
   SpecialChar = { fg = c.prim.soft },
-  Tag = { fg = c.acc.magenta },
-  Delimiter = { fg = c.tone.grey.light },
+  Tag = { fg = c.magenta.main },
+  Delimiter = { fg = c.grey.light },
   SpecialComment = { fg = c.fg.acc },
-  Debug = { fg = c.acc.red },
+  Debug = { fg = c.red.main },
 
   -- Diagnostics
-  DiagnosticError = { fg = c.acc.red },
-  DiagnosticWarn = { fg = c.acc.orange },
-  DiagnosticInfo = { fg = c.acc.blue },
-  DiagnosticHint = { fg = c.acc.cyan },
+  DiagnosticError = { fg = c.red.main },
+  DiagnosticWarn = { fg = c.orange.main },
+  DiagnosticInfo = { fg = c.blue.main },
+  DiagnosticHint = { fg = c.cyan.main },
 
   -- Diff
-  DiffAdd = { bg = c.acc.green },
-  DiffDelete = { bg = c.acc.red },
-  DiffChange = { bg = c.acc.blue },
+  DiffAdd = { bg = c.green.main },
+  DiffDelete = { bg = c.red.main },
+  DiffChange = { bg = c.blue.main },
 
   -- LSP
   LspReferenceText = { bg = c.bg.comp },
@@ -119,12 +119,12 @@ local highlights = {
 
   -- Fields / Properties
   ["@field"] = { fg = c.prim.deep },
-  ["@property"] = { fg = c.acc.cyan },
+  ["@property"] = { fg = c.cyan.main },
 
   ["@function"] = { link = "Function" },
   ["@function.builtin"] = { link = "Builtin" },
   ["@string"] = { link = "String" },
-  ["@string.escape"] = { fg = c.acc.green },
+  ["@string.escape"] = { fg = c.green.main },
 }
 
 -- =========================================================

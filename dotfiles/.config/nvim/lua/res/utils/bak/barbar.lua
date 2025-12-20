@@ -4,24 +4,24 @@ local set = vim.api.nvim_set_hl
 -- Current buffer
 set(0, "BufferCurrent", { fg = c.fg.main, bg = c.bg.main, bold = true })
 set(0, "BufferCurrentMod", { fg = c.acc.magenta, bg = c.bg.main })
-set(0, "BufferCurrentSign", { fg = c.bg.fbg, bg = c.bg.main })
+set(0, "BufferCurrentSign", { fg = c.acc.cyan, bg = c.bg.main })
 set(0, "BufferCurrentTarget", { fg = c.acc.red, bg = c.bg.main })
 
 -- Visible buffer
-set(0, "BufferVisible", { fg = c.tone.grey.light, bg = c.bg.main })
+set(0, "BufferVisible", { fg = c.tone.grey.dark, bg = c.bg.main })
 set(0, "BufferVisibleMod", { fg = c.acc.magenta, bg = c.bg.main })
-set(0, "BufferVisibleSign", { fg = c.bg.fbg, bg = c.bg.main })
+set(0, "BufferVisibleSign", { fg = c.prim.main, bg = c.bg.main })
 set(0, "BufferVisibleTarget", { fg = c.acc.red, bg = c.bg.main })
 
 -- Inactive buffer
-set(0, "BufferInactive", { fg = c.tone.grey.light, bg = c.bg.main })
+set(0, "BufferInactive", { fg = c.tone.grey.dark, bg = c.bg.main })
 set(0, "BufferInactiveMod", { fg = c.acc.magenta, bg = c.bg.main })
-set(0, "BufferInactiveSign", { fg = c.bg.fbg, bg = c.bg.main })
+set(0, "BufferInactiveSign", { fg = c.tone.grey.dark, bg = c.bg.main })
 set(0, "BufferInactiveTarget", { fg = c.acc.red, bg = c.bg.main })
 
 -- Tabline
-set(0, "BufferTabpageFill", { fg = c.bg.fbg, bg = c.bg.main })
-set(0, "BufferTabpages", { fg = c.bg.fbg, bg = c.bg.main })
+set(0, "BufferTabpageFill", { fg = c.tone.grey.dark, bg = c.bg.main })
+set(0, "BufferTabpages", { fg = c.fg.main, bg = c.bg.main })
 
 -- Icons
 set(0, "BufferCurrentIcon", { fg = c.fg.hi, bg = c.bg.main })

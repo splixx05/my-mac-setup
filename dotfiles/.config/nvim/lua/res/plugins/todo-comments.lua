@@ -4,13 +4,13 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua" },
   opts = {
     keywords = {
-      FIX = { icon = " ", color = c.red.main, alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
-      TODO = { icon = " ", color = c.cyan.main },
-      HACK = { icon = " ", color = c.yellow.main },
-      WARN = { icon = " ", color = c.orange.main, alt = { "WARNING", "XXX" } },
-      PERF = { icon = " ", alt = { c.blue.main, "PERFORMANCE", "OPTIMIZE" } },
-      NOTE = { icon = " ", color = c.green.main, alt = { "INFO" } },
-      TEST = { icon = " ", color = c.magenta.main, alt = { "TESTING", "PASSED", "FAILED" } },
+      FIX = { icon = " ", color = c.acc.red, alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+      TODO = { icon = " ", color = c.acc.cyan },
+      HACK = { icon = " ", color = c.acc.yellow },
+      WARN = { icon = " ", color = c.acc.orange, alt = { "WARNING", "XXX" } },
+      PERF = { icon = " ", alt = { c.acc.blue, "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = " ", color = c.acc.green, alt = { "INFO" } },
+      TEST = { icon = " ", color = c.acc.magenta, alt = { "TESTING", "PASSED", "FAILED" } },
     },
   },
 }
